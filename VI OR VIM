@@ -1,0 +1,52 @@
+VI visual display editor
+VIM visual display editor improved
+
+This is command mode editor for files, other editors are emacs, gedit. vi editor is most popular
+Itis having 3 modes:
+
+1 command mode
+2 insert mode (edItmode)
+3 extended command mode
+
+Insert mode:
+i Insert at current cursor position
+I Insert at start of line
+a Append at current cursor position
+A Append at the end of line
+o Insert line below cursor position
+O Insert line Above cursor position
+
+Ins-key same as i
+ex command mode:
+:w to save the file
+:wq to save and quit
+:q to quItwithout saving
+:q! to quItwithout saving (forcefully)
+:wq! to save and quItfile (forcefully)
+{used for read only files}
+:se nu to SEt line NUmber
+:se nonu to remove line number
+:14 to move cursor to line no. 14
+
+command mode:
+dd to delete a line (cut)
+4dd to delete 4 lines (cut)
+yy to copy a line (yank)
+10yy to copy 10 lines (yank)
+p to paste lines below cursor position
+P to past lines above cursor position
+u to undo
+ctrl+r to redo
+
+/<find what> to find a text inside a file
+How to find and replace:-
+:<range>s/<find what>/<replace with>/<options>
+range can be:
+% complete file
+10,$ from 10th line to last line
+15,20 from 15th line to 20th line
+option can be:
+g to replace all the occurence in same line
+i to ignore case sensitivity
+ex. :1,$s/cat/dog/gi
+to find cat,CAT,Cat,cAT and replace with dog in complete file
