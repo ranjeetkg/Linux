@@ -1,0 +1,62 @@
+Linux is open source operating system.
+
+FILESYSTEM HIERARCHY SYSTEM
+Linux uses single rooted, inverted tree like filesystem hierarchy.
+
+/ - this is top level directory. it is parent directory for all other directories. it is called as ROOT directory. 
+it is represented by foward slash(/). c:\ of windows
+/root it is home directory for root user(super user)
+it provides working enviorment for root user
+c:\Documents and Settings\Administrator
+
+/home - it is home directory for other users. It provied working environment for other users(other than root)
+c:\Documents and Settings\username.
+
+/boot - it contains bootable files for linux
+like vmlinuz(kernel) ..... ntoskrnl
+initrd(INITial Ram Disk)and
+GRUB(GRand Unified Bootloader).... boot.ini, ntldr
+
+/etc - It contains all configuration files
+like /etc/passwd..... user info
+/etc/resolv.conf... Preffered DNS
+/etc/dhcpd.conf.... DHCP server
+c:\windows\system32\dirvers\
+
+/usr - By default softwares are installed in /usr directory
+(Unix Sharable Resources)
+c:\program files
+
+/opt - It is optional directory for /usr
+It contains third party softwares
+c:\program files
+/bin - It contains commands used by all users
+(Binary files)
+
+/sbin - It contains commands used by only Super User(root)
+(super user's binary files)
+
+/dev - It contains device files
+like /dev/hda ... for harddisk
+/dev/cdrom ... for cdrom
+similar to device manager of windows
+
+/proc - It contain process files
+Its contents are not permanent, they keep changing
+It is also called as Virtual Directory
+It's file contain usefull information used by OS
+like /proc/meminfo ... information of RAM/SWAP
+/proc/cpuinfo ... information of CPU
+
+/var - It is containing variable data like mails, log files
+
+/mnt - It is default mount point for any partition
+It is empty bydefault
+
+/media - It contains all of removable media like cdrom, pendrive
+
+/lib - It contains library files which are used by OS
+it is similar to dll files of windows
+library files in linux are SO(shared object) files
+
+/tmp - It stored temporary files
