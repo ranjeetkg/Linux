@@ -1,0 +1,133 @@
+Basic commands:-
+
+pwd.... print present working dir
+[root@sys10~]# pwd
+/root
+[root@sys10boot]# pwd
+/boot
+
+date...... to display date and time
+# date (press enter)
+
+who ........ to see who is logged in
+# who( press enter )
+whoami ..... to show who is working on present terminal
+# whoami (press enter)
+
+cal... to show calender
+# cal
+to show present month's calender
+# cal 2008
+to show calender of year 2008
+
+mkdir..... make directory
+syntax # mkdir <dirname>
+ex # mkdir one
+# mkdir one/two
+# mkdir one/two/three
+we can use -p option to create dir inside a dir
+ex # mkdir -p one/two/three
+
+rmdir .... to delete an empty dir
+syntax # rmdir < dir name>
+ex # rmdir one
+error...... Directory not empty
+# rmdir one/two/three
+# rmdir one/two
+# rmdir one
+
+how to create files:-
+we can use 'touch' or 'cat' command
+touch command is used to create blank files
+size of file created by touch is zero bytes
+syntax # touch <filename>
+ex # touch first.txt
+ex # touch second.txt thrid.doc fourth.bat
+
+cat command is used to create file and diplay the contents of file also
+syntax # cat > < new file name >
+ex. # cat > first.txt
+type the contents of file here
+ksldjf;lkas
+asdkljfja;sdf
+asdfashflkjasdfh
+................
+press ctrl + d to save the file
+how to see contents of file
+ex # cat first.txt
+type the contents of file here
+ksldjf;lkas
+asdkljfja;sdf
+asdfashflkjasdfh
+................
+
+how to copy file:
+cp command is used to copy a file
+syntax # cp < source name > < target name >
+ex # cp /root/first.txt /root/one/two/three
+this command will copy first.txt file to three directory with same name
+ex # cp /root/first.txt /root/one/two/three/new.txt
+this command will copy first.txt file to three directory with new.txt
+name
+by default cp command will not copy directory
+we have to use -r switch to copy directory also
+ex # cp -r /root/one/* /var
+this command will copy all the contents of one directory to var
+directory
+note:- we can use wildcard characters
+* means multiple characters
+? means single character
+
+how to delete a file:
+rm command is used to delete a file/directory
+syntax # rm < file/dir name >
+ex # rm /root/first.txt
+it will ask for confirmation, press y to delete file
+ex # rm -f /root/first.txt
+it will not ask for confirmation
+to remove a directory also we have to use -r option
+ex # rm -rf /root/one
+this command will delete one directory with all its contents,
+without confimation.
+
+mv ..... to move file/dir
+this command is also used to rename file/dir
+syntax # mv < source name > < target name >
+ex # mv /root/first.txt /root/one/two/three
+this comamnd will cut first.txt file and paste it in three directory
+ex # mv /root/first.txt /root/new.txt
+this command will rename first.txt file to new.txt
+
+cd..... change directory
+syntax # cd < dir name >
+[root@sys10~]# cd /var/log
+[root@sys10 log]# pwd
+/var/log
+[root@sys10 log]# cd /root
+[root@sys10~]# pwd
+/root
+cd - means switch directory to previous directory
+cd ~ means go back to home directory of user
+cd .. means go to parent directory
+cd ../.. means go to 2 level parent directory
+cd means go back to home directory of user
+
+ls......... list directories
+this command is used to list the contents of a directory
+generally following options are used with 'ls'
+ls -l long listing
+ls -a list all files and directories
+ls -R Recursive order
+ls -r reverse order
+ls -i to list inode numbers
+ll same as 'ls -l'
+the output of ll command shows following iformation:-
+file type
+permissions
+links
+owner of file
+owner's group name
+size of file in bytes
+date and time of modification
+file name
+...............................
