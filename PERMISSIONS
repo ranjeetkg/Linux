@@ -1,0 +1,99 @@
+PERMISSIONS:-
+
+To see the present permission on any file:-
+# ls -ld <filename>
+
+permission are applied on three levels:-
+>> owner or user level
+>> group level
+>> others level
+
+access modes are of three types:
+>> r read only
+>> w write/edit/delete/append
+>> x execute/run a command
+
+access modes are different on file and directory file dir
+>> r open the file 'ls' the contents of dir
+>> w write,edit,append,delete file add/del/rename contents of dir
+>> x to run a command/shell script to enter into dir using 'cd'
+
+the output of ls -ld command shows following properties
+-rw-r--r-- 2 root root 54 15 march ..... file1.txt
+-----
+filetype+permission, links , owner, grp name of owner, size in bytes, date of modification, file name.
+
+
+file types:-
+- normal file
+d directory
+l link file(shortcut)
+b block file(harddisk,floppydisk)
+c character file(keyboard,mouse)
+
+Permission can be set on any file/dir by two methods:-
+1 absolute method(numbers)
+2 symbolic method(ugo)
+
+To set the permission on file/dir 'chmod' command is used
+bydefault permissions on file and dir:-
+
+permissions on file and dir:-
+                  file       dir
+root              644       755
+normal user       664       775
+here---
+read=4
+write=2
+execute=1
+
+how to set permission on file/dir:-
+syntax. # chmod <permission> <file/dir name>
+ex. # chmod 777 /file1.txt
+or
+# chmod u=rwx,g=rwx,o=rwx /file1.txt
+or
+# chmod ugo=rwx /file1.txt
+this command is used to give full permission to all.
+ex. # chmod 000 /file.txt
+or
+# chmod u=-,g=-,o=- /file.txt
+or
+# chmod ugo=- /file.txt
+this command is used to remove all permission.
+
+
+note:- UMASK- is the number which is removed from default permission of file/dir.
+
+Default umask of root user is 022
+Default umask of unprivledged user is 002
+
+for root user:-
+                                      file                       dir
+default perm.                         666                        777
+subtract UMASK                       -022                        -022
+Resulting perm.                       644                        755
+
+for normal user:-
+                                      file                       dir
+def. perm.                             666                       777
+subtract UMASK                         -002                      -002
+Resulting perm.                         664                       775
+.............................................................................
+
+Advanced Permissions:
+
+There are 3 types of adv. permissions:
+SUID ... userlevel
+SGID ... Grouplevel
+Sticky bit others level
+
+To set advance permissions by using numeric method we use
+suid = 4
+sgid = 2
+stickybit= 1
+SUID:-
+If suid is set on any command then any normal user can run
+that command with privledges of root user
+like, Defaultly ping command is having suid, so all users can
+run that command but if suid is removed then 'permission denied'
