@@ -69,3 +69,23 @@ it will delete user1 but home directory will not be deleted
 ex. # userdel -r user2
 it will delete user2 and home directory will also be deleted
 ...................................................................
+
+to create a group:
+syntax. # groupadd <option> <groupname>
+options:
+-g to set GID
+ex. # groupadd -g 1010 sales
+ex. # groupadd mktg
+to add/delete secondary users to group
+syntax # gpasswd <options> <user> <groupname>
+ex. # gpasswd -a user1 sales
+to add a single user
+ex. # gpasswd -M user2,user3,user4 sales
+to add multiple users
+ex. # gpasswd -d user1 sales
+to delete secondary user from member list
+to delete group ( group must not contain any primary user )
+syntax. # groupdel <groupname>
+ex. # groupdel sales
+note: all information of group is stored in /etc/group file
+it contain list of secondary members also.
