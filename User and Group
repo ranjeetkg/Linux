@@ -1,0 +1,71 @@
+User Group Administration
+
+whenever a user is created in linux :-
+*its home directory is created(/home/username)
+*its mail box is created(/var/spool/mail)
+*unique UID & GID are given to user
+*UID for system users 0 to 499
+*UID for normal users 500 to 60,000
+
+Redhat Enterprise Linux and fedora used UPG scheme
+UPG... User Private Group
+
+it means that whenever a user is created is has its own private group
+how to create user:
+syntax. # useradd <option> <username>
+options are
+-u user id
+-G Secondary group id
+-g primary group id
+-d home directory
+-c comment
+-s shell
+ex. # useradd user1
+user1 is created
+ex. # useradd -u 1001 -d /anydirectory -s /bin/sh user2
+user2 is created with uid=1001,home=/anydirectory,shell=/bin/sh
+
+All of user information is stored in /etc/passwd file.
+it contains 7 fields:-
+user1:x:500:500::/home/user1:/bin/bash
+ 1 2 3 4 5 6 7
+1 user login name
+2 mask password
+3 uid
+4 gid
+5 comments( bydefault no comment)
+6 user's home directory
+7 user's login shell
+
+after creating users we can modify its properties by using:
+syntax. # usermod <options> <username>
+
+options are:
+all of the options which are used with useradd command and,
+-l to change login name
+-L to LOCK account
+-U to UNLOCK account
+ex. # usermod -l newname oldname
+ex. # usermod -L newname
+ex. # usermod -U newname
+note:- when a account is locked it will show !(exclamation mark)
+in
+
+/etc/shadow file.
+
+how to set password:
+syntax. # passwd <username>
+ex. # passwd user1
+ex. # passwd root
+*the password information is stored inside /etc/shadow file
+*it contains encrypted password
+*linux uses MD5 and DES algorithms for encrypting passwords
+*MD5 Message Digest version 5
+DES Data Encryption Standard
+how to delete a user account:
+syntax. # userdel <option> <username>
+ex. # userdel user1
+it will delete user1 but home directory will not be deleted
+ex. # userdel -r user2
+it will delete user2 and home directory will also be deleted
+...................................................................
