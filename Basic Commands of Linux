@@ -131,3 +131,58 @@ size of file in bytes
 date and time of modification
 file name
 ...............................
+
+
+
+more and less commands are used to see the contents of a file page wise.
+syntax. # more < file name >
+ex. # more file1.txt
+
+now to see contents page wise press space
+ to see contents line wise press enter
+
+less command is same as more
+but to quit less command we have to press q
+head ........ this command is used to see first 10 lines of a file.
+ex. # head file1.txt
+to see the first 'n' lines:
+ex. # head -n file1.txt
+tail ....... this command is used to see last 10 lines of a file.
+ex. # tail file1.txt
+to see the last 'n' lines:
+# tail -n file1.txt
+redirection:- used to give output of one command to a file.ex.
+# cat file1.txt >> file2.txt
+this command will APPEND the contents of file1.txt to
+file2.txt
+# ls -l >> file3.txt
+the output of 'ls-l' is saved inside file3.txt file.
+pipe:- used to give output of one command to another command
+ex. # cat file1.txt | more
+``:``
+
+
+this is pipe symbol
+Note: grep:- Global Regular Expression Print
+awk:- The name AWK is derived from the family names of its
+authors â€”
+alfred Aho, peter Weinberger, and brian Kernighan
+# ll | grep "^-"
+to show only files
+# ll | grep "^d"
+to show only directory
+# ll | grep "^-" | wc -l
+to count no. of files
+wc..... word count
+# wc file1.txt
+it will show no. of lines
+no. of words
+no. of characters
+# wc -l file1.txt
+shows only no. of lines
+# wc -w file1.txt
+shows only no. words
+# wc -c file.txt
+shows only no. of characters.
+
+
