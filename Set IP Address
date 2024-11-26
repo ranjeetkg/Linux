@@ -1,0 +1,41 @@
+ifconfig:-
+Interface configuration(Network Interface Card)
+it is used to set ip addr temporarily
+it is also used to check ip addr
+
+
+how to set ip addr temporarily:-
+# ifconfig eth0 192.168.1.X
+
+how to check ip add:-
+# ifconfig eth0
+it will display ip addr, hardware addr, subnet mask .....
+
+netconfig:- network configuration is used to set ip addr, subnet mask, preffered dns, default gateway
+how to set ip addr:
+# netconfig ( press enter )
+ok
+192.168.1.X
+255.255.255.0
+enter
+enter
+ok
+# service network restart
+restart network service to update new ip addr
+note:- if netconfig is not working then pakage is not installed
+
+you can install this pakage by using 
+rpm system-config-network
+or
+neat( Network Administration Tool )
+used to set ip addr in Graphical mode
+
+
+ifup:- interface up
+this command will enable lan card
+# ifup eth0
+ifdown:- interface down
+this command will disable lan card
+# ifdown eth0
+ethtool:- used to check whether lan card is detected or not:
+# ethtool eth0
