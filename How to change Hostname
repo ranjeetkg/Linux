@@ -1,0 +1,16 @@
+How to change Hostname
+
+hostname:- this command is used to set hostname temporarily and view hostname
+
+to see hostname:-
+# hostname (press enter)
+
+To set hostname temporarily:-
+# hostname sysX
+to make hostname permanent:-
+# vi /etc/hosts
+192.168.1.X sysX
+# vi /etc/sysconfig/network
+HOSTNAME=sysX
+
+>> to check log off and log in again and use 'hostname' command
