@@ -1,0 +1,98 @@
+Partitions:-
+fdisk command is used in linux to create,delete,view,manage partitions
+
+# fdisk -l
+Disk /dev/hda: 41.1 GB, 41174138880 bytes
+Device Boot Start cyl End cyl Blocks Id File System
+/dev/hda1 * 1 1020 8193118+ 7 HPFS/NTFS
+/dev/hda2 1021 1033 104422+ 83 Linux
+
+Note:- 1Block=1KB
+
+Id is used by system to identify the type of partition.
+* means it is a boot partiton.
+
+>> How to create new partition:-
+# fdsik < device name >
+# fdisk /dev/hda
+command(m for help):
+commands are:-
+n new partition
+d delete partition
+p print partition table
+t set system id(tag)
+w to save and quit
+q to quit without saving
+m prints this help
+l to list system id
+to create new partition:-
+
+command(m for help): n
+
+first cyl..........: (press enter)
+size in mb +sizeM..: +100M
+command(m for help): w
+it will display warning:- kernel use old partition table.
+# partprobe /dev/hda
+now check partition:-
+# fdisk -l
+
+>> How to delete partition:-
+first note the partition no. by using 'fdisk -l' command.
+for example----/dev/hda9
+then,
+# fdisk /dev/hda
+command(m for help) : d
+partition no.(1-9) : 9
+command(m for help) : w
+# partprobe /dev/hda
+
+Note:- dont delete partition already created, delete only that partition which u hav created.
+
+>> How to format partition:-
+mkfs command is used to make file system.
+
+To format partition using ext3 file system:-
+# mkfs.ext3 /dev/hda9
+
+To format partition using ext2 file system:-
+# mkfs.ext2 /dev/hda9
+
+To format partition using vfat file system:-
+# mkfs.vfat /dev/hda9
+How to mount the formated partition:-
+
+mount command is used to create a link between physical partition and an empty directory.
+
+you can use /mnt directory for mounting any partition or you can create your own dir. also
+# mount <device name+partition no.> < mount point>
+# mount /dev/hda9 /mnt
+# mount /dev/hda10 /cms
+after mounting you can create file/dir in that partition:-
+# cd /mnt
+# touch 1 2 3 4
+# mkdir one two three four
+
+mount command is also used to check whether the partition is mounted or not
+# mount (press enter)
+it will show all currrently mounted partitions
+
+Label:- label of partition is name of partition
+(ex. in windows .....disk1_vol1, localdisik)
+(ex. in linux ..... /boot, /root)
+
+How to check current label:
+# e2label < partition no. >
+# e2label /dev/hda1
+# e2label /dev/hda2
+
+>>how to change label:
+# e2label /dev/hda9 Myname
+# e2label /dev/hda10 yourname
+
+>>How to convert ext2 to ext3
+# tune2fs -j /dev/hda9
+
+>>How to convert ext3 to ext2
+# tune2fs -O ^has_journal /dev/hda9
+(capital O)
