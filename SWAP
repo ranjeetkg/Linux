@@ -1,0 +1,27 @@
+SWAP --> swap is a file system, it is similar to virtual memory of windows, swap space is used to improve the system performance.
+
+>> How swap works?
+system identifies the idle process in RAM(memory) and sends it to swap space, so that RAM again becomes free. Swap space is created on Hard disk
+
+>> Rule to create Swap?
+if size of RAM < 2GB
+then size of SWAP=2*RAM
+else
+size of SWAP= 2 + RAM
+
+>>How to view info about swap
+# free
+# more /proc/meminfo
+# more /proc/swaps
+# swapon -s
+
+-s option is to show swap
+
+>>How to increase Swap size
+1. first create a new partition using fdisk command
+ex. /dev/hda9
+2. make it a swap partition:-
+# mkswap /dev/hda9
+3. enable swap on this partition:-
+# swapon /dev/hda9
+check it by using 'swapon -s'
